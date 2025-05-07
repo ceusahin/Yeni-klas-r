@@ -23,11 +23,11 @@ export default function Movie() {
 
     const freed = new Audio(desire);
     freed.loop = true;
-    freed.volume = 0.1;
+    freed.volume = 1.5;
 
     const duduk = new Audio(airhorn);
     duduk.loop = false;
-    duduk.volume = 0.1;
+    duduk.volume = 1.5;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
