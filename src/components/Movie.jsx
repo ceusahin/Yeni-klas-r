@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import desire from "../sounds/freedfromdesirecut.mp3";
 
 export default function Movie() {
   useEffect(() => {
@@ -19,6 +20,10 @@ export default function Movie() {
     const loveMessage = document.getElementById("loveMessage");
     const container = document.getElementById("container");
 
+    const audio = new Audio(desire);
+    audio.loop = true;
+    audio.volume = 0.08;
+
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
         const x = Math.floor(Math.random() * (container.offsetWidth - 100));
@@ -32,11 +37,12 @@ export default function Movie() {
     if (yesBtn && loveMessage) {
       yesBtn.addEventListener("click", () => {
         confetti({
-          particleCount: 150,
+          particleCount: 500,
           spread: 100,
           origin: { y: 0.6 },
         });
 
+        audio.play();
         loveMessage.style.display = "block";
       });
     }
