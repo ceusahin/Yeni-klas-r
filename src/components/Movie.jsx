@@ -23,16 +23,16 @@ export default function Movie() {
 
     const freed = new Audio(desire);
     freed.loop = true;
-    freed.volume = 1.5;
+    freed.volume = 1;
 
     const duduk = new Audio(airhorn);
     duduk.loop = false;
-    duduk.volume = 1.5;
+    duduk.volume = 1;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
-        const x = Math.floor(Math.random() * (container.offsetWidth - 100));
-        const y = Math.floor(Math.random() * (container.offsetHeight - 50));
+        const x = Math.floor(Math.random() * (window.innerWidth - 100));
+        const y = Math.floor(Math.random() * (window.innerHeight - 50));
         noBtn.style.position = "absolute";
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
@@ -71,7 +71,7 @@ export default function Movie() {
           Hayır
         </button>
         <div id="loveMessage">
-          <h2>SENİ ÇOOOK SEVİYOM &lt;3 &lt;3</h2>
+          <h2>TEŞEKKÜR EDERİM SENİ ÇOOOK SEVİYOOOOM &lt;3 &lt;3</h2>
         </div>
       </div>
     </>
