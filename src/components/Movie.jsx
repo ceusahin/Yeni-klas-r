@@ -21,13 +21,13 @@ export default function Movie() {
     const loveMessage = document.getElementById("loveMessage");
     const container = document.getElementById("container");
 
-    const desire = new Audio(desire);
-    desire.loop = true;
-    desire.volume = 1.5;
+    const freed = new Audio(desire);
+    freed.loop = true;
+    freed.volume = 0.1;
 
-    const airhorn = new Audio(airhorn);
-    desire.loop = false;
-    airhorn.volume = 1.5;
+    const duduk = new Audio(airhorn);
+    duduk.loop = false;
+    duduk.volume = 0.1;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
@@ -47,10 +47,10 @@ export default function Movie() {
           origin: { y: 0.6 },
         });
 
-        airhorn.play();
+        duduk.play();
 
         setTimeout(() => {
-          desire.play();
+          freed.play();
         }, 3000);
 
         loveMessage.style.display = "block";
