@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import desire from "../sounds/freedfromdesirecut.mp3";
+import airhorn from "../sounds/airhorn.mp3";
 
 export default function Movie() {
   useEffect(() => {
@@ -20,9 +21,13 @@ export default function Movie() {
     const loveMessage = document.getElementById("loveMessage");
     const container = document.getElementById("container");
 
-    const audio = new Audio(desire);
-    audio.loop = true;
-    audio.volume = 1.5;
+    const desire = new Audio(desire);
+    desire.loop = true;
+    desire.volume = 1.5;
+
+    const airhorn = new Audio(airhorn);
+    desire.loop = false;
+    airhorn.volume = 1.5;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
@@ -42,7 +47,12 @@ export default function Movie() {
           origin: { y: 0.6 },
         });
 
-        audio.play();
+        airhorn.play();
+
+        setTimeout(() => {
+          desire.play();
+        }, 3000);
+
         loveMessage.style.display = "block";
       });
     }
