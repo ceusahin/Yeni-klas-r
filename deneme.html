@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bitirme Tezi</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script> -->
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .emoji-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 80px);
+        grid-auto-rows: 80px;
+        opacity: 0.08;
+        pointer-events: none;
+        font-size: 60px;
+        text-align: center;
+        line-height: 80px;
+      }
+
+      .emoji-bg div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #container {
+        z-index: 1;
+        background-color: rgba(34, 34, 34, 0.9);
+        padding: 40px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+      }
+
+      .btn {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+      }
+
+      #yesBtn {
+        background-color: green;
+        color: white;
+      }
+
+      #noBtn {
+        background-color: red;
+        color: white;
+        position: relative;
+      }
+
+      #loveMessage {
+        display: none;
+        margin-top: 20px;
+        background-color: #333;
+        padding: 30px;
+        border-radius: 10px;
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Emoji Arka Plan -->
+    <div class="emoji-bg" id="emojiGrid"></div>
+
+    <div id="container">
+      <h1>Zeynep beni affeder misin?</h1>
+      <button class="btn" id="yesBtn">Evet</button>
+      <button class="btn" id="noBtn">Hayır</button>
+      <div id="loveMessage">
+        <h2>SENİ ÇOOOK SEVİYOM &lt;3 &lt;3</h2>
+      </div>
+    </div>
+
+    <script>
+      const emojis = ["🥺", "😔", "😭", "😢"];
+      const emojiGrid = document.getElementById("emojiGrid");
+
+      for (let i = 0; i < 10000; i++) {
+        const div = document.createElement("div");
+        div.textContent = emojis[i % emojis.length];
+        emojiGrid.appendChild(div);
+      }
+
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+      const loveMessage = document.getElementById("loveMessage");
+
+      // Hayır butonu kaçıyor
+      noBtn.addEventListener("mouseover", () => {
+        const container = document.getElementById("container");
+        const x = Math.floor(Math.random() * (container.offsetWidth - 100));
+        const y = Math.floor(Math.random() * (container.offsetHeight - 50));
+        noBtn.style.position = "absolute";
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+      });
+
+      // Evet butonuna tıklanınca: airhorn sesi çal, müzik başlasın, konfeti patlasın
+      yesBtn.addEventListener("click", () => {
+        // Konfeti efekti
+        confetti({
+          particleCount: 150,
+          spread: 100,
+          origin: { y: 0.6 },
+        });
+
+        // Mesajı göster
+        loveMessage.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
