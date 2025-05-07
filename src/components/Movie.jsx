@@ -23,11 +23,11 @@ export default function Movie() {
 
     const freed = new Audio(desire);
     freed.loop = true;
-    freed.volume = 1.5;
+    freed.volume = 0.1;
 
     const duduk = new Audio(airhorn);
     duduk.loop = false;
-    duduk.volume = 1.5;
+    duduk.volume = 0.1;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
@@ -51,7 +51,7 @@ export default function Movie() {
 
         setTimeout(() => {
           freed.play();
-        }, 3000);
+        }, 2300);
 
         loveMessage.style.display = "block";
       });
