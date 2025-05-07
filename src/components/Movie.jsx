@@ -22,7 +22,7 @@ export default function Movie() {
 
     const audio = new Audio(desire);
     audio.loop = true;
-    audio.volume = 0.5;
+    audio.volume = 1.5;
 
     if (noBtn && container) {
       noBtn.addEventListener("mouseover", () => {
