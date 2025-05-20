@@ -63,7 +63,7 @@ export default function Movie() {
       <div className="emoji-bg" id="emojiGrid"></div>
 
       <div id="container">
-        <h1>Zeynep beni affeder misin?</h1>
+        <h1>**** beni affeder misin?</h1>
         <button className="btn" id="yesBtn">
           Evet
         </button>
